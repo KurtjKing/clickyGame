@@ -7,9 +7,8 @@ const Card = props => (
   <div className="card img-container hover">
       <img alt={props.name} src={props.image} id={props.id}/>
         {/* // onClick={() => props.shuffleScoreCard(props.id)} className='shuffleScore'/> */}
-        <span onClick={() => props.shuffleScoreCard(props.id)} className="remove">
-        𝘅
-      </span>
+        <span onClick={() => props.shuffleScoreCard(props.id)} className="remove">X</span>
+       
   </div>
 );
 

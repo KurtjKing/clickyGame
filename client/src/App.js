@@ -13,7 +13,6 @@ class App extends Component {
     clickedChars: [],
     score: 0,
     topScore:0,
-    guessRight:undefined,
     message:""
     
   };

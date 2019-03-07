@@ -7,46 +7,53 @@ import './App.css';
 
 
 class App extends Component {
-  // Setting this.state.pups to the cards json array
+  // Setting this.state.chars to the cards json array
   state = {
     chars,
     clickedChars: [],
     score: 0,
     topScore:0,
     guessRight:undefined,
-    winner:false
+    message:""
     
   };
-
-  
-
   shuffleScoreCard = id => {
+    let clickedChars = this.state.clickedChars;
+
+    if(clickedChars.includes(id)){
+      this.setState({ clickedChars: [], score: 0, status:  "Game Over!" });
+      return;
+    }else{
+      clickedChars.push(id)
+
+      if(clickedChars.length === 9){
+        this.setState({score: 9, status: "Winner,Winner,Winner", clickedChars: []});
+        console.log('You Win');
+        return;
+      }
+
+      this.setState({ chars, clickedChars, score: clickedChars.length, message: " " });
+
+      for (let i = chars.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [chars[i], chars[j]] = [chars[j], chars[i]];
+      }
+    }
+  }
+
+
+
+
   
-    chars.sort(() => Math.random() - 0.5);
 
-    this.setState({ chars, score:   this.state.score +1 });
-
-
-
-    
-
-
-
-      
-
-    
-
-  };
-
+//   shuffleScoreCard = id => {
   
+//     chars.sort(() => Math.random() - 0.5);
 
-  
-  
+//     this.setState({ chars, score:   this.state.score +1 });
+// };
 
-  
-
-
-  render() {
+render() {
   return (
     <div className="App">
       <header className="App-header">

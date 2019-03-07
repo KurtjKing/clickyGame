@@ -12,21 +12,21 @@ class App extends Component {
     chars,
     clickedChars: [],
     score: 0,
-    topScore:0,
-    message:""
-    
+    topScore: 0,
+    message: ""
+
   };
   shuffleScoreCard = id => {
     let clickedChars = this.state.clickedChars;
 
-    if(clickedChars.includes(id)){
-      this.setState({ clickedChars: [], score: 0, status:  "Game Over!" });
+    if (clickedChars.includes(id)) {
+      this.setState({ clickedChars: [], score: 0, status: "Game Over!" });
       return;
-    }else{
+    } else {
       clickedChars.push(id)
 
-      if(clickedChars.length === 9){
-        this.setState({score: 9, status: "Winner,Winner,Winner", clickedChars: []});
+      if (clickedChars.length === 9) {
+        this.setState({ score: 9, status: "Winner,Winner,Winner", clickedChars: [] });
         console.log('You Win');
         return;
       }
@@ -39,46 +39,42 @@ class App extends Component {
       }
     }
   }
-
-
-
-
   
+  // I wanted to use this method. I could get the score to go up but i couldnt figure out the loop and conditonals//
+  //   shuffleScoreCard = id => {
 
-//   shuffleScoreCard = id => {
-  
-//     chars.sort(() => Math.random() - 0.5);
+  //     chars.sort(() => Math.random() - 0.5);
 
-//     this.setState({ chars, score:   this.state.score +1 });
-// };
+  //     this.setState({ chars, score:   this.state.score +1 });
+  // };
 
-render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Car Clicker</h1>
-        <p className="App-intro">
-          Try not to click the same image twice!
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Car Clicker</h1>
+          <p className="App-intro">
+            Try not to click the same image twice!
         </p>
-      </header>
-      <Score total={this.state.score}
-             topScore={this.state.topScore}
-             status={this.state.status}
-             />
-      <Wrapper>
-        {this.state.chars.map(data => (
-          <Card
-            shuffleScoreCard={this.shuffleScoreCard}
-            id={data.id}
-            key={data.id}
-            image={data.image}
-          />
-        ))}
-      </Wrapper>
-    
-  </div>
-  );
-}
+        </header>
+        <Score total={this.state.score}
+          topScore={this.state.topScore}
+          status={this.state.status}
+        />
+        <Wrapper>
+          {this.state.chars.map(data => (
+            <Card
+              shuffleScoreCard={this.shuffleScoreCard}
+              id={data.id}
+              key={data.id}
+              image={data.image}
+            />
+          ))}
+        </Wrapper>
+
+      </div>
+    );
+  }
 }
 
 export default App;

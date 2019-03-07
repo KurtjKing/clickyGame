@@ -38,7 +38,7 @@ class App extends Component {
         [chars[i], chars[j]] = [chars[j], chars[i]];
       }
     }
-  }
+  }   
   
   // I wanted to use this method. I could get the score to go up but i couldnt figure out the loop and conditonals//
   //   shuffleScoreCard = id => {

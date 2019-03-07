@@ -15,3 +15,6 @@ TECHNOLOGY USED
 React
 Bootstrap 
 
+The UI is made up of components created seperatly and imported into the app.js file. The state  will change depending on which actions are being taken by the user. 
+
+The data is rendered on the client side by using map which is basically a loop. 

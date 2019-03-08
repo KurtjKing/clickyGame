@@ -12,7 +12,7 @@ class App extends Component {
     chars,
     clickedChars: [],
     score: 0,
-    topScore: 0,
+    topScore: undefined,
     message: ""
 
   };

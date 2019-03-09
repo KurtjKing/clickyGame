@@ -13,14 +13,14 @@ class App extends Component {
     clickedChars: [],
     score: 0,
     topScore: 0,
-    message: ""
+    status: ""
 
   };
   shuffleScoreCard = id => {
     let clickedChars = this.state.clickedChars;
 
     if (clickedChars.includes(id)) {
-      this.setState({ clickedChars: [], score: 0, status: "Game Over!" });
+      this.setState({ clickedChars: [], score: 0, topScore: 1, status: "Game Over!" });
       return;
     } else {
       clickedChars.push(id)
@@ -31,7 +31,7 @@ class App extends Component {
         return;
       }
 
-      this.setState({ chars, clickedChars, score: clickedChars.length, message: " " });
+      this.setState({ chars, clickedChars, score: clickedChars.length, status: " " });
 
       for (let i = chars.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
